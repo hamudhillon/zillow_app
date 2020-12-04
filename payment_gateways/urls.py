@@ -18,9 +18,9 @@ from django.urls import path
 from home import views
 from django.conf.urls import include
 # from runnscrapper import views
-admin.site.site_header = "Gartin Real Estate"
-admin.site.site_title = "Gartin Real Estate Admin Portal"
-admin.site.index_title = "Welcome to Gartin Real Estate Admin Portal"
+admin.site.site_header = "Zillow"
+admin.site.site_title = "Zillow Admin Portal"
+admin.site.index_title = "Welcome to Zillow Admin Portal"
 
 
 all_urls = [
