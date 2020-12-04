@@ -50,8 +50,8 @@ class results(admin.ModelAdmin):
     readonly_fields = ('scraper_name','title','created','updated','data_prettified','city','state','price','status','url')
     list_display_links = ('scraper_name',)
     list_filter = (('scraper_name', DropdownFilter),('city', DropdownFilter),('state', DropdownFilter),'created','status')
-    def has_add_permission(self, request, obj=None):
-        return False
+    # def has_add_permission(self, request, obj=None):
+    #     return False
     short_description = 'scraper_name'
 
 
