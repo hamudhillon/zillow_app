@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <style>
+        yourbody.loading .loading {
+            height: 100%;
+            padding-top: 15%;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, .75);
+            z-index: 999;
+        }
+        
+        yourbody:not(.loading) .loading {
+            display: none;
+        }
+        
+        .noEvents {
+            pointer-events: none;
+        }
+        
+        .noSelect {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .glyphicon-refresh-animate {
+            -animation: spin .7s infinite linear;
+            -webkit-animation: spin2 .7s infinite linear;
+        }
+        
+        @-webkit-keyframes spin2 {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spin {
+            from {
+                transform: scale(1) rotate(0deg);
+            }
+            to {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+        
+        .onTop {
+            z-index: 1000;
+        }
+        
+        .toggle {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+        }
+        
+        .info {
+            z-index: 0;
+            position: absolute;
+            top: 1px;
+            left: 0;
+        }
+    </style>
+</head>
+
+
+
+<yourbody class="loading">
+    <div class="container loading noEvents noSelect">
+        <button class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Scrapper Process Done !</button>
+    </div>
+</yourbody>
+<a href='/' class="btn btn-xs btn-info toggle onTop">Back</a>
+<!-- <h1 class="display-4">Hello, Admin!</h1>
+          <p class="lead">Click On Register</p>
+          <hr class="my-4">
+          <p>You can register from here to use all pages.</p>
+          <a class="btn btn-primary btn-lg" href="/register/" role="button">Register</a> -->
+
+
+</html>

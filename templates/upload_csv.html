@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zillow.webdrvn</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="/static/css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/css/fileinput.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container bg-light">
+
+
+        <div class="text-center">
+
+            <h1>Zillow Data Scarping</h1>
+
+            <b>Note: </b>Upload only <code>CSV File</code></p>
+
+            <!-- Test all icons -->
+            <img width='50' height='50' src='/static/Images/csv-xxl.png'>
+            <div class="w-25 alert alert-dismissible mt-2 mb-2" role="alert" style="width: 30%;left: 50%;margin-left: -15%;position: relative;margin-top: 10px;">
+                <p></p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- <form method="POST" action="">
+                {% csrf_token %} -->
+            <div id='l' style='background:rgba(200, 200, 200, .5);color:black;'>
+                <div class="file-loading bg-light">
+                    <input id="input-id" name="csv_file" type="file" accept=".csv" data-preview-file-type="csv">
+                </div>
+                <p>&nbsp;</p>
+                <button style='display:none;' type="submit" class="btn btn-default uploadfilebtn">Submit</button>
+            </div>
+            <!-- This file input will automatically converted into "Bootstrap File Input" -->
+            <!-- Iconic preview for thumbs and detailed preview for zoom -->
+
+            <!-- </form> -->
+        </div>
+        <a class="btn btn-primary btn" href="/logout/" role="button">Logout</a>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/plugins/piexif.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/plugins/sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/plugins/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/fileinput.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/plugins/piexif.min.js"></script> -->
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- <div class="wrapper">
+    <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        <div class="row">
+            <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+
+            <button class="btn btn-success col-md-5 uploadfilebtn">Upload Files</button>
+        </div>
+    </form> -->
+
+    <!-- code ll be here -->
+
+    <!-- </div> -->
+
+    <script>
+        $("#input-id").fileinput({
+            uploadUrl: "?",
+            uploadAsync: true,
+            uploadExtraData: {
+                'csrfmiddlewaretoken': '{{csrf_token}}', // for access control / security 
+            },
+            theme: 'fas',
+            previewFileIcon: '<i class="far fa-file-excel bg-info"></i>',
+            preferIconicPreview: true, // this will force thumbnails to display icons for following file extensions
+            previewFileIconSettings: {
+                // configure your icon file extensions
+                doc: "<div ><img width='50' height='50' src='/static/Images/csv-xxl.png' ></div>",
+            },
+            previewFileExtSettings: {
+                // configure the logic for determining icon file extensions
+                doc: function(ext) {
+                    return ext.match(/(csv)$/i)
+                }
+            },
+
+        }, function(data) {
+            console.log(data);
+        }).on('fileuploaded', function(event, previewId, index, fileId) {
+            $('.alert').addClass('alert-success show');
+            $('.alert p').text('Done !');
+        }).on('fileuploaderror', function(event, data, msg) {
+            $('.alert').addClass('alert-danger show');
+            $('.alert p').text('Error !');
+        }).on('filebatchuploadcomplete', function(event, preview, config, tags, extraData) {
+            console.log('File Batch Uploaded', preview, config, tags, extraData);
+        });
+    </script>
+</body>
+
+</html>
