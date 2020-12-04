@@ -44,14 +44,14 @@ INSTALLED_APPS = [
     'home',
     'django_admin_listfilter_dropdown',
     # 'djcelery',
-    'django_celery_results',
-    'django_celery_beat'
+    # 'django_celery_results',
+    # 'django_celery_beat'
 ]
 
 # this setting is required to load tasks
 # -------------------------------------------------
-import djcelery
-djcelery.setup_loader()
+# import djcelery
+# djcelery.setup_loader()
 
 # --------------------------------------------------
 # BROKER_URL = 'django://'
@@ -172,28 +172,28 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # ----------------------------------------------------------------------------------------
 
-# CELERY STUFF
-BROKER_URL = 'amqp://localhost'
-# BROKER_URL = 'amqp://test:test123@localhost:5672/samplehost'
-CELERY_RESULT_BACKEND = 'amqp://localhost'
-# CELERY_RESULT_BACKEND = 'amqp://test:test123@localhost:5672/samplehost'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
+# # CELERY STUFF
+# BROKER_URL = 'amqp://localhost'
+# # BROKER_URL = 'amqp://test:test123@localhost:5672/samplehost'
+# CELERY_RESULT_BACKEND = 'amqp://localhost'
+# # CELERY_RESULT_BACKEND = 'amqp://test:test123@localhost:5672/samplehost'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TIMEZONE = 'UTC'
 
-from celery.schedules import crontab
-CELERYBEAT_SCHEDULE = {
-    'Zillow_Scrapper': {
-        'task': 'home.tasks.zillow_scrapper',
-        'schedule': crontab(hour=22, minute=30)
-    },
-    'check_records':{
-         'task': 'home.tasks.check_records',
-        'schedule': crontab(hour=22, minute=33)
-    }
+# from celery.schedules import crontab
+# CELERYBEAT_SCHEDULE = {
+#     'Zillow_Scrapper': {
+#         'task': 'home.tasks.zillow_scrapper',
+#         'schedule': crontab(hour=22, minute=30)
+#     },
+#     'check_records':{
+#          'task': 'home.tasks.check_records',
+#         'schedule': crontab(hour=22, minute=33)
+#     }
         
-}
+# }
 
 # Setting for listening via https protocol
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -218,5 +218,5 @@ SWAGGER_SETTINGS = {
 
 # USE_SESSION_AUTH = '/auth/logout'
 
-CELERY_TASK_TRACK_STARTED=True
-CELERY_RESULT_BACKEND = 'django-db'
+# CELERY_TASK_TRACK_STARTED=True
+# CELERY_RESULT_BACKEND = 'django-db'
