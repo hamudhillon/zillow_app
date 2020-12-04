@@ -47,3 +47,4 @@ django-celery-beat==2.1.0
 django-celery-results==1.2.1
 drf-yasg==1.20.0
 Pygments==2.6.1
+scraperapi-sdk==0.2.2
