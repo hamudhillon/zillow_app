@@ -107,10 +107,10 @@ WSGI_APPLICATION = 'payment_gateways.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'zillow',
-        'HOST': 'jre.co97n9zijsu0.us-west-2.rds.amazonaws.com',
-        'USER': 'zillowuser',
-        'PASSWORD':'z8xNdpirbALrPpjm1ipZ'
+        'NAME': 'db52ll1hdeh6m0',
+        'HOST': 'ec2-52-20-66-171.compute-1.amazonaws.com',
+        'USER': 'wigwuormkmmjid',
+        'PASSWORD':'fb50631c93f4dc9d95c80f6391e1b691a4da9ea989183dfdc839376ca863602d'
     }
     
     
